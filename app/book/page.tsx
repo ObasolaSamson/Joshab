@@ -1,19 +1,36 @@
-import type { Metadata } from "next";
+'use client'
 
-import { BookingForm } from "@/components/site/booking-form";
-
-export const metadata: Metadata = {
-  title: "Book an Appointment",
-  description:
-    "Request a confidential appointment with Joshab Psychiatric Center. We'll be in touch within 24 hours.",
-};
+import Cal, { getCalApi } from '@calcom/embed-react'
+import { useEffect } from 'react'
 
 export default function BookPage() {
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({ namespace: 'joshabpsychiatry' })
+      cal('ui', {
+        theme: 'light',
+        hideEventTypeDetails: false,
+        layout: 'month_view',
+      })
+    })()
+  }, [])
+
   return (
-    <section className="bg-cream">
-      <div className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-xl items-start justify-center px-4 py-12 sm:px-6 sm:py-20">
-        <BookingForm />
+    <main className="min-h-screen bg-[#f5f0e8] py-16 px-4">
+      <div className="max-w-5xl mx-auto">
+        <h1 className="font-display text-4xl text-[#0e1f2e] text-center mb-2">
+          Book an Appointment
+        </h1>
+        <p className="text-center text-[#2a6b6e] text-sm tracking-widest uppercase mb-10">
+          Joshab Psychiatric Center
+        </p>
+        <Cal
+          namespace="joshabpsychiatry"
+          calLink="joshabpsychiatry"
+          style={{ width: '100%', height: '100%', overflow: 'scroll' }}
+          config={{ layout: 'month_view' }}
+        />
       </div>
-    </section>
-  );
+    </main>
+  )
 }
