@@ -63,9 +63,9 @@ export default function HomePage() {
           <div className="mt-10 flex justify-center">
             <Image
               src="/images/abi-portrait.jpg"
-              alt="Abiodun Agbabiaka in a navy three-piece suit and red bow tie"
-              width={768}
-              height={1024}
+              alt="Abiodun Agbabiaka, Psychiatric Nurse Practitioner"
+              width={320}
+              height={400}
               priority
               className="h-auto w-56 rounded-2xl border-4 border-gold object-cover shadow-lg sm:w-64"
             />
@@ -82,22 +82,6 @@ export default function HomePage() {
             {BIO_PARAGRAPHS.map((paragraph) => (
               <p key={paragraph.slice(0, 24)}>{paragraph}</p>
             ))}
-          </div>
-          <div className="mx-auto mt-10 grid max-w-sm grid-cols-2 gap-3">
-            <Image
-              src="/images/abi-formal.jpg"
-              alt="Abiodun Agbabiaka in a white shirt, burgundy bow tie and suspenders"
-              width={768}
-              height={1024}
-              className="aspect-[3/4] w-full rounded-xl object-cover shadow-md"
-            />
-            <Image
-              src="/images/abi-studying.jpg"
-              alt="Abiodun Agbabiaka studying advanced cardiovascular assessment materials"
-              width={768}
-              height={1024}
-              className="aspect-[3/4] w-full rounded-xl object-cover object-right shadow-md"
-            />
           </div>
           <div className="mt-10 text-center">
             <Button
